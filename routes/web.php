@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\CategoryController;
 
-Route::get('/', [TodoController::class , 'index'])->name('todo.index');
 
 
 // Categories Route
@@ -16,5 +15,7 @@ Route::put('/categories/{category}', [CategoryController::class , 'update'])->na
 Route::delete('/categories/{category}', [CategoryController::class , 'destroy'])->name('category.destroy');
 
 // Todos Route
+Route::get('/', [TodoController::class , 'index'])->name('todo.index');
 Route::get('/todos/create', [TodoController::class , 'create'])->name('todo.create');
 Route::post('/todos', [TodoController::class , 'store'])->name('todo.store');
+Route::get('/todos/{todo}', [TodoController::class , 'show'])->name('todo.show');

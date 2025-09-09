@@ -11,7 +11,9 @@ class TodoController extends Controller
 {
     public function index()
     {
-        return view('todos');
+        $todos = Todo::query()->get();
+        $categories = Category::all();
+        return view('todos.index' , compact('todos' , 'categories'));
     }
 
     public function create()
@@ -42,5 +44,9 @@ class TodoController extends Controller
         flash()->success('تسک مورد نظر با موفقیت اضافه شد');
 
         return redirect()->route('todo.index');
+    }
+
+    public function show(Todo $todo){
+        return view('todos.show', compact('todo'));
     }
 }
