@@ -42,7 +42,7 @@
                     <button type="submit"
                         class="ms-2 rounded-sm p-2 border border-red-400 transition-all text-red-400 hover:bg-red-400 hover:text-white text-center ml-1.5">Delete</button>
                 </form>
-                <a href=""
+                <a href="{{route('todo.edit' , ['todo' => $todo->id])}}"
                     class="rounded-sm ms-2 p-2 border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white transition-all text-center">Edit</a>
             </div>
         </form>

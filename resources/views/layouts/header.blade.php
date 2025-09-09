@@ -16,7 +16,7 @@
     <nav class="bg-slate-100 text-gray-800" style="direction: ltr">
         <div class="flex p-2 mr-32 justify-between">
             <div class="flex">
-                <a href="" class="p-3 font-bold text-2xl">Todo App</a>
+                <a href="{{route('todo.index')}}" class="p-3 font-bold text-2xl">Todo App</a>
                 <ul class="flex justify-start p-4">
                     <a href="{{route('todo.index')}}">
                         <li class="mr-8 hover:text-gray-500 transition-opacity text-lg">
