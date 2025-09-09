@@ -36,7 +36,7 @@
                 @enderror
             </div>
              <div>Description</div>
-             <textarea name="description" rows="10" class="input-create mt-3 w-full h-9 border border-gray-200 rounded-md focus-visible:outline-gray-300 pl-2"></textarea>
+             <textarea name="description" rows="10" class="input-create mt-3 w-full h-24 border border-gray-200 rounded-md focus-visible:outline-gray-300 pl-2"></textarea>
             <div class="text-sm text-red-700 mb-5 mt-2">
                 @error('description')
                     {{ $message }}

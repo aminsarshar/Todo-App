@@ -17,7 +17,8 @@
                     <th scope="col" class="px-6 py-3">Image</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="[&>tr:nth-child(odd)]:bg-white [&>tr:nth-child(even)]:bg-gray-100">
+
                 @foreach ($todos as $todo)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                         <td>
@@ -25,7 +26,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    class="ms-2 rounded-sm p-2 border border-red-400 transition-all text-red-400 hover:bg-red-400 hover:text-white text-center ml-1.5">Delete</button>
+                                    class="ms-2 rounded-sm p-2 cursor-pointer border border-red-400 transition-all text-red-400 hover:bg-red-400 hover:text-white text-center ml-1.5">Delete</button>
                             </form>
                         </td>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -37,7 +38,7 @@
 
                             @if ($todo->status)
                                 <a href=""
-                                    class="rounded-sm p-2 border border-red-400 transition-all text-red-400 hover:bg-red-400 hover:text-white text-center ml-1.5">
+                                    class="rounded-sm p-2 bg-green-600 transition-all text-white hover:bg-green-500 text-center ml-1.5">
                                     completed
                                 </a>
                             @else
@@ -60,5 +61,8 @@
                 @endforeach
             </tbody>
         </table>
+
+
     </div>
+    {{ $todos->links('pagination::tailwind') }}
 @endsection
