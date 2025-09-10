@@ -24,3 +24,6 @@ Route::get('/todos/{todo}/edit', [TodoController::class , 'edit'])->name('todo.e
 Route::put('/todos/{todo}', [TodoController::class , 'update'])->name('todo.update');
 Route::delete('/todos/{todo}', [TodoController::class , 'destroy'])->name('todo.destroy');
 
+Route::get('/mock', function () {
+    return response('OK', 200);
+});
