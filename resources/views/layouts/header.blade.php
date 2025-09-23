@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -12,19 +12,20 @@
     <title>todo-app</title>
 </head>
 
-<body style="direction:rtl ; font-family:system-ui;">
-    <nav class="bg-slate-100 text-gray-800" style="direction: ltr">
+
+<body class="bg-white dark:bg-slate-700" style="direction:rtl ; font-family:system-ui;">
+    <nav class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300" style="direction: ltr">
         <div class="flex p-2 mr-32 justify-between">
             <div class="flex">
                 <a href="{{route('todo.index')}}" class="p-3 font-bold text-2xl">Todo App</a>
                 <ul class="flex justify-start p-4">
                     <a href="{{route('todo.index')}}">
-                        <li class="mr-8 hover:text-gray-500 transition-opacity text-lg">
+                        <li class="mr-8 hover:text-slate-500 dark:hover:text-slate-400 transition-opacity text-lg">
                             Home
                         </li>
                     </a>
                     <a href="{{route('category.index')}}">
-                        <li class="mr-8 hover:text-gray-500 transition-opacity text-lg">
+                        <li class="mr-8 hover:text-slate-500 dark:hover:text-slate-400 transition-opacity text-lg">
                             Category
                         </li>
                 </ul>
