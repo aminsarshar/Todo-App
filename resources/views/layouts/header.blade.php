@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html class="light" lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -11,7 +11,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>todo-app</title>
 </head>
-
 
 <body class="bg-white dark:bg-slate-700" style="direction:rtl ; font-family:system-ui;">
     <nav class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300" style="direction: ltr">
@@ -37,11 +36,38 @@
                             <i class="fa-solid fa-shopping-cart"></i>
                         </li>
                     </a>
-                    <a href="#">
-                        <li class="mr-4 hover:text-gray-500 transition-opacity text-2xl">
-                            <i class="fa-regular fa-moon"></i>
-                        </li>
-                    </a>
+                        <button
+      id="theme-toggle"
+      class="p-3 rounded-2xl bg-gray-200 dark:bg-gray-700 transition-all"
+    >
+      <!-- پیش‌فرض ماه -->
+      <svg
+        id="icon-moon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"
+        />
+      </svg>
+
+      <svg
+        id="icon-sun"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6 hidden text-yellow-400"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 18a6 6 0 100-12 6 6 0 000 12z"
+        />
+        <path
+          d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M7.05 16.95l-1.414 1.414M16.95 16.95l1.414 1.414M7.05 7.05 5.636 5.636"
+        />
+      </svg>
+    </button>
                     <div class="flex justify-between items-center border border-gray-300 rounded-lg mr-14 py-1 px-3">
                         <a href="#">
                             <li class="hover:text-gray-500 transition-opacity">
@@ -59,3 +85,30 @@
             </div>
         </div>
     </nav>
+ <script>
+      const button = document.getElementById("theme-toggle");
+      const html = document.documentElement;
+      const moonIcon = document.getElementById("icon-moon");
+      const sunIcon = document.getElementById("icon-sun");
+
+      // بررسی تم ذخیره‌شده
+      if (localStorage.getItem("theme") === "dark") {
+        html.classList.add("dark");
+        moonIcon.classList.add("hidden");
+        sunIcon.classList.remove("hidden");
+      }
+
+      button.addEventListener("click", () => {
+        if (html.classList.contains("dark")) {
+          html.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+          moonIcon.classList.remove("hidden");
+          sunIcon.classList.add("hidden");
+        } else {
+          html.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+          moonIcon.classList.add("hidden");
+          sunIcon.classList.remove("hidden");
+        }
+      });
+    </script>
