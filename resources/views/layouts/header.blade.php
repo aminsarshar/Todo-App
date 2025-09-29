@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @livewireStyles
     <title>todo-app</title>
 </head>
 
@@ -85,30 +86,4 @@
             </div>
         </div>
     </nav>
- <script>
-      const button = document.getElementById("theme-toggle");
-      const html = document.documentElement;
-      const moonIcon = document.getElementById("icon-moon");
-      const sunIcon = document.getElementById("icon-sun");
-
-      // بررسی تم ذخیره‌شده
-      if (localStorage.getItem("theme") === "dark") {
-        html.classList.add("dark");
-        moonIcon.classList.add("hidden");
-        sunIcon.classList.remove("hidden");
-      }
-
-      button.addEventListener("click", () => {
-        if (html.classList.contains("dark")) {
-          html.classList.remove("dark");
-          localStorage.setItem("theme", "light");
-          moonIcon.classList.remove("hidden");
-          sunIcon.classList.add("hidden");
-        } else {
-          html.classList.add("dark");
-          localStorage.setItem("theme", "dark");
-          moonIcon.classList.add("hidden");
-          sunIcon.classList.remove("hidden");
-        }
-      });
-    </script>
+ 
