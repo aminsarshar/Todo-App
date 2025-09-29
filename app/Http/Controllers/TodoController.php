@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use App\Models\Category;
+use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -42,7 +43,9 @@ class TodoController extends Controller
             'category_id' => $request->category_id,
         ]);
 
-        flash()->success('تسک مورد نظر با موفقیت اضافه شد');
+        // flash()->success('تسک مورد نظر با موفقیت اضافه شد');
+        Flash::success('پیام با موفقیت ثبت شد!');
+
 
         return redirect()->route('todo.index');
     }
