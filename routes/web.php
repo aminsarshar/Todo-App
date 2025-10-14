@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\CategoryController;
@@ -45,3 +46,7 @@ Route::delete('/todos/{todo}', [TodoController::class, 'destroy'])->name('todo.d
 Route::get('/mock', function () {
     return response('OK', 200);
 });
+
+
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+// Route::get('/register', [AuthController::class, 'registerPost'])->name('register.post');
