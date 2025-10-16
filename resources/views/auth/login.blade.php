@@ -6,7 +6,7 @@
             <a href="{{ route('register') }}"
                 class="rounded-sm bg-gray-600 hover:bg-gray-700 transition-all text-white w-22 text-center h-8 pt-1">Register</a>
         </div>
-        <form class="m-5" action="{{ route('register.post') }}" method="POST">
+        <form class="m-5" action="{{ route('login.post') }}" method="POST">
             @csrf
 
             <div class="text-slate-900 dark:text-slate-200">Email</div>

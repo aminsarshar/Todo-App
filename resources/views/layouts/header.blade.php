@@ -47,15 +47,26 @@
                         </svg>
                     </button>
                     <div class="flex justify-between items-center border border-gray-300 rounded-lg  py-2 ml-2 px-3">
-                        <a href="{{route('login')}}">
-                            login
-                        </a>
+                        @if (auth()->check())
+                            <a href="#">{{ auth()->user()->name }}</a>
+                        @else
+                            <a href="{{ route('login') }}">
+                                login
+                            </a>
+                        @endif
                     </div>
 
-                    <div class="bg-gray-600 text-white flex justify-between items-center border border-gray-300 rounded-lg  py-2 ml-2 px-3">
-                        <a href="{{route('register')}}">
-                            register
-                        </a>
+                    <div
+                        class="bg-gray-600 text-white flex justify-between items-center border border-gray-300 rounded-lg  py-2 ml-2 px-3">
+                        @if (auth()->check())
+                            <a href="{{route('logout')}}">
+                                logout
+                            </a>
+                        @else
+                            <a href="{{ route('register') }}">
+                                register
+                            </a>
+                        @endif
                     </div>
                 </ul>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -19,8 +20,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:5|confirmed',
-
+            'password' => 'required|min:5|confirmed'
         ]);
 
         $user = User::create([
@@ -28,21 +28,20 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        if (!$user) {
-            flash()->error('Unable to connect to the server.', 'Connection Error');
-            return redirect()->back();
-        } else {
-            flash()->success('Operation completed successfully.');
-            return redirect(route('todo.index'));
-            // Display a success toast with no title
+
+        if(!$user) {
+            return redirect()->back()->with('error', 'Registration failed, try again');
         }
+
+        return redirect()->route('todo.index')->with('success', 'Registration success, login to access the app');
     }
 
-    public function login(){
+    public function login()
+    {
         return view('auth.login');
     }
 
-        public function loginPost(Request $request)
+    public function loginPost(Request $request)
     {
         $request->validate([
             'email' => 'required|email|exists:users',
@@ -50,18 +49,28 @@ class AuthController extends Controller
 
         ]);
 
-        $user = User::where('email' , $request->email)->first();
+        $user = User::where('email', $request->email)->first();
 
-        if(!$user){
+        if (!$user) {
             flash()->error('User with this email address was not found..');
             return redirect()->back();
-
         }
 
-        if(!Hash::check($request->password , $user->password)){
-            flash()->error('User with this password was not found..');
+        if (!Hash::check($request->password, $user->password)) {
+            flash()->error('User with this password is wrong ..');
             return redirect()->back();
         }
 
+        Auth::login($user);
+        flash()->success('Login was successful');
+        return redirect()->route('todo.index');
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        flash()->success('Logout was successful');
+        return redirect()->route('todo.index');
     }
 }
