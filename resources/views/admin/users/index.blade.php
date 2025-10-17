@@ -8,24 +8,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card-box">
-                            <div class="dropdown pull-right">
-                                <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <i class="zmdi zmdi-more-vert"></i>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">فعال</a></li>
-                                    <li><a href="#">متن اول</a></li>
-                                    <li><a href="#">متن دوم</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">متن پاورقی</a></li>
-                                </ul>
-                            </div>
-
-                            <h4 class="header-title m-t-0 m-b-30">نمونه اول</h4>
-
                             <livewire:admin.users.index />
-
                         </div>
                     </div><!-- end col -->
                 </div>

@@ -1,36 +1,42 @@
-<form action="#" data-parsley-validate novalidate>
-    <div class="form-group">
-        <label for="userName">نام کاربری*</label>
-        <input type="text" name="nick" parsley-trigger="change" required placeholder="نام کاربری خود را وارد کنید"
-            class="form-control" id="userName">
+<form wire:submit="saveUser" data-parsley-validate novalidate>
+    <div class="form-group col-lg-6">
+        <label for="userName" style="font-size: 18px">نام کاربری*</label>
+        <input type="text" wire:model="name" parsley-trigger="change" required placeholder="نام کاربری خود را وارد کنید"
+            class="form-control">
+            @error('name')
+                <span style="color: red !important">{{ $message }}</span>
+            @enderror
     </div>
-    <div class="form-group">
-        <label for="emailAddress">آدرس ایمیل*</label>
-        <input type="email" name="email" parsley-trigger="change" required placeholder="ایمیل خود را وارد کنید"
-            class="form-control" id="emailAddress">
+    <div class="form-group col-lg-6">
+        <label for="emailAddress" style="font-size: 18px">آدرس ایمیل*</label>
+        <input type="email" wire:model.blur="email" parsley-trigger="change" required placeholder="ایمیل خود را وارد کنید"
+            class="form-control">
+            @error('email')
+                <span style="color: red !important">{{ $message }}</span>
+            @enderror
     </div>
-    <div class="form-group">
-        <label for="pass1">پسورد*</label>
-        <input id="pass1" type="password" placeholder="پسورد" required class="form-control">
+    <div class="form-group col-lg-6">
+        <label style="font-size: 18px">شماره تماس*</label>
+        <input type="number" wire:model="cellphone" required placeholder="شماره تماس" class="form-control">
+        @error('cellphone')
+            <span style="color: red !important">{{ $message }}</span>
+        @enderror
     </div>
-    <div class="form-group">
-        <label for="passWord2">بازنویسی پسورد *</label>
-        <input data-parsley-equalto="#pass1" type="password" required placeholder="پسورد" class="form-control"
-            id="passWord2">
+    <div class="form-group col-lg-6">
+        <label style="font-size: 18px">پسورد*</label>
+        <input wire:model="password" type="password" placeholder="پسورد" required class="form-control">
+        @error('password')
+            <span style="color: red !important">{{ $message }}</span>
+        @enderror
     </div>
-    <div class="form-group">
-        <div class="checkbox">
-            <input id="remember-1" type="checkbox">
-            <label for="remember-1"> مرا به یاد داشته باش </label>
-        </div>
-    </div>
-
-    <div class="form-group text-right m-b-0">
-        <button class="btn btn-primary waves-effect waves-light" type="submit">
-            ورود
+    <div class="form-group text-left m-b-0 m-t-10">
+        <button class="btn btn-primary waves-effect waves-light" type="submit"
+            style="font-size: 18px;padding-left:25px;padding-right:25px;">
+            ثبت اطلاعات
         </button>
-        <button type="reset" class="btn btn-default waves-effect waves-light m-l-5">
-            لغو
+        <button type="reset" class="btn btn-default waves-effect waves-light m-l-5"
+            style="font-size: 18px;padding-left:25px;padding-right:25px;">
+            بازگشت
         </button>
     </div>
 
