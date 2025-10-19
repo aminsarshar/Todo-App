@@ -28,7 +28,9 @@
                         <li class="mr-8 hover:text-slate-500 dark:hover:text-slate-400 transition-opacity text-lg">
                             Category
                         </li>
+
                 </ul>
+
             </div>
             <div class="flex justify-end ml-32">
                 <ul class="flex p-4 mr-2 items-center justify-between">
@@ -59,7 +61,7 @@
                     <div
                         class="bg-gray-600 text-white flex justify-between items-center border border-gray-300 rounded-lg  py-2 ml-2 px-3">
                         @if (auth()->check())
-                            <a href="{{route('logout')}}">
+                            <a href="{{ route('logout') }}">
                                 logout
                             </a>
                         @else
@@ -68,7 +70,23 @@
                             </a>
                         @endif
                     </div>
+
+                    <div>
+                    </div>
                 </ul>
             </div>
         </div>
     </nav>
+
+<livewire:auth.login/>
+  <script>
+    const modal = document.getElementById('loginModal');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const loginBtn = document.getElementById('loginBtn');
+
+    // باز و بسته کردن مودال
+    openModalBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+    closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+
+  </script>

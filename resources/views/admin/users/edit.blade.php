@@ -6,9 +6,9 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-sm-12" style="margin-top: -60px">
+                    <div class="col-lg-12">
                         <div class="card-box">
-                            <livewire:admin.users.index />
+                            <livewire:admin.users.edit />
                         </div>
                     </div><!-- end col -->
                 </div>

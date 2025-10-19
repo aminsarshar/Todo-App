@@ -3,17 +3,17 @@
         <label for="userName" style="font-size: 18px">نام کاربری*</label>
         <input type="text" wire:model="name" parsley-trigger="change" required placeholder="نام کاربری خود را وارد کنید"
             class="form-control">
-            @error('name')
-                <span style="color: red !important">{{ $message }}</span>
-            @enderror
+        @error('name')
+            <span style="color: red !important">{{ $message }}</span>
+        @enderror
     </div>
     <div class="form-group col-lg-6">
         <label for="emailAddress" style="font-size: 18px">آدرس ایمیل*</label>
-        <input type="email" wire:model.blur="email" parsley-trigger="change" required placeholder="ایمیل خود را وارد کنید"
-            class="form-control">
-            @error('email')
-                <span style="color: red !important">{{ $message }}</span>
-            @enderror
+        <input type="email" wire:model.blur="email" parsley-trigger="change" required
+            placeholder="ایمیل خود را وارد کنید" class="form-control">
+        @error('email')
+            <span style="color: red !important">{{ $message }}</span>
+        @enderror
     </div>
     <div class="form-group col-lg-6">
         <label style="font-size: 18px">شماره تماس*</label>
@@ -34,10 +34,10 @@
             style="font-size: 18px;padding-left:25px;padding-right:25px;">
             ثبت اطلاعات
         </button>
-        <button type="reset" class="btn btn-default waves-effect waves-light m-l-5"
+        <a href="{{route('admin.user.index')}}" class="btn btn-default waves-effect waves-light m-l-5"
             style="font-size: 18px;padding-left:25px;padding-right:25px;">
             بازگشت
-        </button>
+        </a>
     </div>
 
 </form>
