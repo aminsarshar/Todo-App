@@ -3,8 +3,7 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <table id="mainTable" class="table table-striped m-b-0">
-        <div class="col-lg-1"
-            style="margin-top: 20px;text-align: end;margin-left: -56px;z-index: 1;font-size: 19px;">
+        <div class="col-lg-1" style="margin-top: 20px;text-align: end;margin-left: -56px;z-index: 1;font-size: 19px;">
             <i class="fa fa-search" aria-hidden="true" style=""></i>
         </div>
         <div class="col-lg-9" style="padding: 15px">
@@ -42,7 +41,8 @@
                         <td style="font-size: 18px;font-family:sans-serif;color:red !important">غیرفعال</td>
                     @endif
                     @if (!empty($user->cellphone))
-                        <td style="font-size: 15px;padding: 2px;margin-top: 7px;display: block;width: 75%;" class="label label-info  ">{{ $user->cellphone }}</td>
+                        <td style="font-size: 15px;padding: 2px;margin-top: 7px;display: block;width: 75%;"
+                            class="label label-info  ">{{ $user->cellphone }}</td>
                     @else
                         <td style="font-size: 15px;padding:2px" class="label label-warning">این فیلد وارد نشده</td>
                     @endif
@@ -50,8 +50,17 @@
                     <td>
                         {{ verta($user->created_at)->format('%d  %B   %Y') }}
                     </td>
-                    <td><a href="{{ route('admin.user.edit', ['user' => $user->id]) }}" class="btn btn-warning">ویرایش</a></td>
-                    <td><a href="#" class="btn btn-danger">حذف</a></td>
+                    <td><button wire:click="goToEdit({{ $user->id }})" class="btn btn-primary">
+                            ویرایش
+                        </button></td>
+                    <td>
+                        <form class="" action="{{ route('admin.user.destroy', ['user' => $user->id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                class="btn btn-danger">حذف</button>
+                        </form>
+                    </td>
 
                 </tr>
             @endforeach

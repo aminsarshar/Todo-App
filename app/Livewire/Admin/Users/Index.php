@@ -12,8 +12,6 @@ class Index extends Component
     // protected $paginationTheme = "tailwind";
     public $search;
 
-    public $editUserIndex = null;
-
 
     public function render()
     {
@@ -23,5 +21,10 @@ class Index extends Component
         ->orWhere('cellphone', 'like' , '%'.$this->search.'%')
         ->paginate(7);
         return view('livewire.admin.users.index' , compact('users'));
+    }
+
+    public function goToEdit($id)
+    {
+        return redirect()->route('admin.users.edit', $id);
     }
 }

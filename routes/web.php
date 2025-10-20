@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\UsersConroller;
-use App\Http\Controllers\Auth\AuthController;
+use App\Livewire\Admin\Users\Edit;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\UsersConroller;
 
 
 
@@ -23,9 +24,15 @@ Route::prefix('admin-panel/management')->name('admin.')->group(function () {
         return view('admin.users.index');
     })->name('user.index');
 
+    // Route::get('users/{user}/edit', function () {
+    //     return view('admin.users.edit');
+    // })->name('user.edit');
+
 
     Route::get('users/{user}/edit', [UsersConroller::class, 'edit'])->name('user.edit');
     Route::put('users/{user}/update', [UsersConroller::class, 'update'])->name('user.update');
+Route::delete('/users/{user}', [UsersConroller::class, 'destroy'])->name('user.destroy');
+
 });
 
 

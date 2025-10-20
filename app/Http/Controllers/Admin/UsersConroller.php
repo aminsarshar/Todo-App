@@ -87,8 +87,12 @@ class UsersConroller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, User $user)
     {
-        //
+         $user->delete();
+
+        flash()->success('delete category successfully.');
+
+        return redirect()->route('admin.user.index');
     }
 }
