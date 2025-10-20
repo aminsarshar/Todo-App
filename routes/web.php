@@ -23,15 +23,9 @@ Route::prefix('admin-panel/management')->name('admin.')->group(function () {
         return view('admin.users.index');
     })->name('user.index');
 
-    Route::get('users/{user}/edit', function () {
-        return view('admin.users.edit');
-    })->name('user.edit');
 
-    // Route::get('users/edit/{user}', function () {
-    //     return view('admin.users.edit');
-    // })->name('user.edit');
-
-    Route::get('/users/{user}/edit', [UsersConroller::class, 'edit'])->name('user.edit');
+    Route::get('users/{user}/edit', [UsersConroller::class, 'edit'])->name('user.edit');
+    Route::put('users/{user}/update', [UsersConroller::class, 'update'])->name('user.update');
 });
 
 

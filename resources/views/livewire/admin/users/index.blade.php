@@ -50,7 +50,7 @@
                     <td>
                         {{ verta($user->created_at)->format('%d  %B   %Y') }}
                     </td>
-                    <td><a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning">ویرایش</a></td>
+                    <td><a href="{{ route('admin.user.edit', ['user' => $user->id]) }}" class="btn btn-warning">ویرایش</a></td>
                     <td><a href="#" class="btn btn-danger">حذف</a></td>
 
                 </tr>
