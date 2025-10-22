@@ -38,6 +38,7 @@
                         class="rounded-lg p-2 transition-all bg-blue-600 text-white hover:bg-blue-700 w-full">
                         ورود
                     </button>
+                    <a href="{{ route('forget.password') }}" class="fs-6 ms-3">Forget password?</a>
                 </form>
             </div>
         </div>

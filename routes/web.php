@@ -6,6 +6,7 @@ use App\Http\Controllers\TodoController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\UsersConroller;
+use App\Http\Controllers\ForgetPasswordController;
 
 
 
@@ -76,3 +77,8 @@ Route::get('login', function () {
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route::post('/login', [AuthController::class, 'loginPost'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/forget-password', [ForgetPasswordController::class, 'forgetPassword'])->name('forget.password');
+Route::post('/forget-password', [ForgetPasswordController::class, 'forgetPasswordPost'])->name('forget.password.post');
+Route::get('/reset-password/{token}', [ForgetPasswordController::class, 'resetPassword'])->name('reset.password');
+Route::post('/reset-password', [ForgetPasswordController::class, 'resetPasswordPost'])->name('reset.password.post');
