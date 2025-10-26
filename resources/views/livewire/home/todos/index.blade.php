@@ -36,10 +36,10 @@
                                 completed
                             </a>
                         @else
-                            <a href="{{ route('todo.completed', ['todo' => $todo->id]) }}"
+                            <td wire:click="Completed({{ $todo->id }})"
                                 class="rounded-sm p-2 bg-blue-500 hover:bg-blue-400 transition-all text-white text-center ml-2">
                                 Done
-                            </a>
+                            </td>
                         @endif
                     </th>
                     <td>

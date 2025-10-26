@@ -54,15 +54,15 @@ class TodoController extends Controller
         return view('todos.show', compact('todo'));
     }
 
-    public function completed(Todo $todo)
-    {
-        $todo->update([
-            'status' => 1
-        ]);
-        flash()->success('تسک مورد نظر با موفقیت آپدیت شد');
+    // public function completed(Todo $todo)
+    // {
+    //     $todo->update([
+    //         'status' => 1
+    //     ]);
+    //     flash()->success('تسک مورد نظر با موفقیت آپدیت شد');
 
-        return redirect()->route('todo.index');
-    }
+    //     return redirect()->route('todo.index');
+    // }
 
     public function edit(Todo $todo)
     {
