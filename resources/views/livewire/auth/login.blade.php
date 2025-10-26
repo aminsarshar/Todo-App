@@ -2,8 +2,8 @@
 
     <!-- دکمه باز کردن مودال -->
     <button wire:click="openModal"
-        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-        ورود کاربر
+        class="cursor-pointer px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 transition">
+        Login
     </button>
 
     <!-- مودال -->

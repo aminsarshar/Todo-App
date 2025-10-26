@@ -72,6 +72,6 @@ class ForgetPasswordController extends Controller
         DB::table('password_reset_tokens')->where([
             'token' => $request->token,
         ])->delete();
-        return redirect()->route('login');
+        return redirect()->route('todo.index');
     }
 }

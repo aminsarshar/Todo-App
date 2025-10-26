@@ -34,6 +34,28 @@
             </div>
             <div class="flex justify-end ml-32">
                 <ul class="flex p-4 mr-2 items-center justify-between">
+
+                    <div class="flex justify-between items-center  rounded-lg  py-2 ml-2 px-3">
+                        @if (auth()->check())
+                            <a href="#">{{ auth()->user()->name }}</a>
+                        @else
+                            <a href="#">
+                                <livewire:auth.login />
+                            </a>
+                        @endif
+                    </div>
+                    <div
+                        class="bg-gray-600 text-white flex justify-between items-center border border-gray-300 rounded-lg  py-2 ml-2 px-3">
+                        @if (auth()->check())
+                            <a href="{{ route('logout') }}">
+                                logout
+                            </a>
+                        @else
+                            <a href="{{ route('register') }}">
+                                register
+                            </a>
+                        @endif
+                    </div>
                     <button id="theme-toggle" class="p-3 rounded-2xl bg-gray-200 dark:bg-gray-700 transition-all">
                         <!-- پیش‌فرض ماه -->
                         <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor"
@@ -48,28 +70,7 @@
                                 d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M7.05 16.95l-1.414 1.414M16.95 16.95l1.414 1.414M7.05 7.05 5.636 5.636" />
                         </svg>
                     </button>
-                    <div class="flex justify-between items-center border border-gray-300 rounded-lg  py-2 ml-2 px-3">
-                        @if (auth()->check())
-                            <a href="#">{{ auth()->user()->name }}</a>
-                        @else
-                            <a href="{{ route('login') }}">
-                                login
-                            </a>
-                        @endif
-                    </div>
 
-                    <div
-                        class="bg-gray-600 text-white flex justify-between items-center border border-gray-300 rounded-lg  py-2 ml-2 px-3">
-                        @if (auth()->check())
-                            <a href="{{ route('logout') }}">
-                                logout
-                            </a>
-                        @else
-                            <a href="{{ route('register') }}">
-                                register
-                            </a>
-                        @endif
-                    </div>
 
                     <div>
                     </div>
@@ -78,15 +79,16 @@
         </div>
     </nav>
 
-<livewire:auth.login/>
-  <script>
-    const modal = document.getElementById('loginModal');
-    const openModalBtn = document.getElementById('openModalBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const loginBtn = document.getElementById('loginBtn');
 
-    // باز و بسته کردن مودال
-    openModalBtn.addEventListener('click', () => modal.classList.remove('hidden'));
-    closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
 
-  </script>
+
+    <script>
+        const modal = document.getElementById('loginModal');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const loginBtn = document.getElementById('loginBtn');
+
+        // باز و بسته کردن مودال
+        openModalBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+        closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    </script>
