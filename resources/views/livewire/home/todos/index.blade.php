@@ -1,3 +1,4 @@
+@if (count($todos) != 0)
 <div>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -16,12 +17,13 @@
             @foreach ($todos as $todo)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                     <td>
-                        <form action="{{ route('todo.destroy', ['todo' => $todo->id]) }}" method="post">
+                        <a class="ms-2 rounded-sm p-2 cursor-pointer border border-red-400 transition-all text-red-400 hover:bg-red-400 hover:text-white text-center ml-1.5"" wire:click="Delete({{ $todo->id }})">delete</a>
+                        {{-- <form action="{{ route('todo.destroy', ['todo' => $todo->id]) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="submit"
                                 class="ms-2 rounded-sm p-2 cursor-pointer border border-red-400 transition-all text-red-400 hover:bg-red-400 hover:text-white text-center ml-1.5">Delete</button>
-                        </form>
+                        </form> --}}
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
@@ -36,10 +38,10 @@
                                 completed
                             </a>
                         @else
-                            <td wire:click="Completed({{ $todo->id }})"
-                                class="rounded-sm p-2 bg-blue-500 hover:bg-blue-400 transition-all text-white text-center ml-2">
+                            <a wire:click="Completed({{ $todo->id }})"
+                                class="cursor-pointer rounded-sm p-2 bg-blue-500 hover:bg-blue-400 transition-all text-white text-center ml-2 w-20">
                                 Done
-                            </td>
+                            </a>
                         @endif
                     </th>
                     <td>
@@ -59,3 +61,11 @@
 
     </table>
 </div>
+@else
+<div>
+<div class="alert alert-danger bg-red-500 text-white p-3">
+    تسکی وجود ندارد
+</div>
+</div>
+
+@endif

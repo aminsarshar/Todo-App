@@ -96,10 +96,10 @@ class TodoController extends Controller
         return redirect()->route('todo.index');
     }
 
-    public function destroy(Todo $todo)
-    {
-        $todo->delete();
-        flash()->success('تسک مورد نظر با موفقیت حذف شد');
-        return redirect()->route('todo.index');
-    }
+    // public function destroy(Todo $todo)
+    // {
+    //     $todo->delete();
+    //     flash()->success('تسک مورد نظر با موفقیت حذف شد');
+    //     return redirect()->route('todo.index');
+    // }
 }

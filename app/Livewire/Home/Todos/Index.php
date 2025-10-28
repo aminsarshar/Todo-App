@@ -21,7 +21,14 @@ class Index extends Component
         ]);
         flash()->success('تسک مورد نظر با موفقیت آپدیت شد');
         // return redirect()->route('todo.index');
-        
+
+    }
+
+    public function Delete($id)
+    {
+        $todo = Todo::query()->find($id);
+        $todo->delete();
+        flash()->success('تسک مورد نظر با موفقیت حذف شد');
     }
 
     public function render()
