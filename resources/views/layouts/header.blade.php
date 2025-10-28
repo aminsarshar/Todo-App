@@ -10,7 +10,7 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     @livewireStyles
-    
+
     <title>todo-app</title>
 </head>
 
@@ -48,9 +48,7 @@
                     <div
                         class="bg-gray-600 text-white flex justify-between items-center border border-gray-300 rounded-lg  py-2 ml-2 px-3">
                         @if (auth()->check())
-                            <a href="{{ route('logout') }}">
-                                logout
-                            </a>
+                            <livewire:auth.logout />
                         @else
                             <a href="{{ route('register') }}">
                                 register

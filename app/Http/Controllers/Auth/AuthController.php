@@ -66,11 +66,11 @@ class AuthController extends Controller
         return redirect()->route('todo.index');
     }
 
-    public function logout(Request $request){
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        flash()->success('Logout was successful');
-        return redirect()->route('todo.index');
-    }
+    // public function logout(Request $request){
+    //     Auth::logout();
+    //     $request->session()->invalidate();
+    //     $request->session()->regenerateToken();
+    //     flash()->success('Logout was successful');
+    //     return redirect()->route('todo.index');
+    // }
 }
