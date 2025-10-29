@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -27,6 +28,7 @@ class CategoryController extends Controller
 
         Category::create([
             'title' => $request->title,
+            'user_id' => Auth::user()->id,
 
         ]);
 

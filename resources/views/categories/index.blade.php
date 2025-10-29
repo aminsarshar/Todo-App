@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <div class="rounded-xl border border-gray-300 dark:border-gray-500 relative overflow-x-auto w-[80%] my-10 mx-auto">
+@auth
+     <div class="rounded-xl border border-gray-300 dark:border-gray-500 relative overflow-x-auto w-[80%] my-10 mx-auto">
         <div class="flex justify-between border-b border-b-gray-300 dark:border-b-gray-500 p-4 bg-gray-100 dark:bg-gray-800">
             <a href="{{ route('category.create') }}"
                 class="rounded-sm bg-gray-800 dark:bg-slate-600 hover:bg-slate-800 transition-all text-white w-22 text-center h-8">create</a>
@@ -16,6 +17,7 @@
             </thead>
             <tbody class="[&>tr:nth-child(odd)]:bg-white [&>tr:nth-child(even)]:bg-gray-100 dark:[&>tr:nth-child(odd)]:bg-slate-700 dark:[&>tr:nth-child(even)]:bg-slate-800">
                 @foreach ($categories as $category)
+                @if (Auth::user()->id == $category->user_id)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                         <td>
                             <span class="rounded-md bg-cyan-600 text-white p-2">
@@ -37,8 +39,20 @@
                         <td class="px-6 py-4 text-base">{{ $category->title }}</td>
 
                     </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>
     </div>
+@else
+<div class="rounded-xl border border-gray-300 dark:border-gray-500 relative overflow-x-auto w-[80%] my-10 mx-auto">
+            <div class="flex justify-between border-b border-b-gray-300 dark:border-b-gray-500 p-4 bg-gray-100 dark:bg-gray-800">
+                <a href="#"
+                    class="rounded-sm bg-gray-800 dark:bg-slate-600 hover:bg-slate-800 transition-all text-white w-22 text-center h-8">create</a>
+                <span class="text-slate-800 dark:text-slate-300 font-bold text-xl">ابتدا وارد شوید</span>
+            </div>
+
+        </div>
+@endauth
+
 @endsection

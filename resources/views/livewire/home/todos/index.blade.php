@@ -14,7 +14,6 @@
             <tbody
                 class="[&>tr:nth-child(odd)]:bg-white [&>tr:nth-child(even)]:bg-gray-100 dark:[&>tr:nth-child(odd)]:bg-slate-700 dark:[&>tr:nth-child(even)]:bg-slate-800">
                 @foreach ($todos as $todo)
-                    @auth
                         @if (Auth::user()->id == $todo->user_id)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                                 <td>
@@ -58,7 +57,6 @@
                                         src="{{ asset('images/' . $todo->image) }}" alt=""></td>
                             </tr>
                         @endif
-                    @endauth
                 @endforeach
             </tbody>
             {{-- {{ $todos->links('pagination::tailwind') }} --}}
