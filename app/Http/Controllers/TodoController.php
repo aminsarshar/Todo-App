@@ -7,6 +7,7 @@ use App\Models\Category;
 use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class TodoController extends Controller
@@ -40,6 +41,7 @@ class TodoController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'category_id' => $request->category_id,
+            'user_id' => Auth::user()->id,
         ]);
 
         // flash()->success('تسک مورد نظر با موفقیت اضافه شد');

@@ -3,6 +3,7 @@
 namespace App\Livewire\Home\Todos;
 
 use App\Models\Todo;
+use App\Models\User;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithPagination;
