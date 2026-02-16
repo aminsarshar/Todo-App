@@ -9,3 +9,10 @@
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
+# Ignore compiled / frontend assets
+/public/* linguist-vendored
+/resources/js/* linguist-vendored
+/node_modules/* linguist-vendored
+
+# Count PHP normally
+*.php linguist-detectable=true
